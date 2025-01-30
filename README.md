@@ -5332,5 +5332,3 @@ export const GET = async (req: NextRequest) => {
   redirect('/orders');
 };
 ```
- 
- 
