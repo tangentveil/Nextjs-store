@@ -23,7 +23,7 @@ async function ProductsContainer({
       <section>
         <div className="flex justify-center items-center">
           <h4 className="font-medium text-lg">
-            {totalProducts} products{totalProducts > 1 && "s"}
+            {totalProducts} product{totalProducts > 1 && "s"}
           </h4>
 
           <div className="flex gap-x-4">
