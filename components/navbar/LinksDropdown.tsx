@@ -18,6 +18,9 @@ function LinksDropdown() {
   const { userId } = auth();
   const isAdmin = userId === process.env.ADMIN_USER_ID;
 
+  console.log(`user id: ${userId}`)
+  console.log(`env user id: ${process.env.ADMIN_USER_ID}`)
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
