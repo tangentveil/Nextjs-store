@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { SignInButton } from "@clerk/nextjs";
 import { FaRegHeart, FaHeart } from "react-icons/fa";
-import { LuTrash2 } from "react-icons/lu";
+import { LuPen, LuTrash2 } from "react-icons/lu";
 
 type btnSize = "default" | "lg" | "sm";
 
@@ -16,7 +16,7 @@ type SubmitButtonProps = {
   size?: btnSize;
 };
 
-function SubmitButton({
+export function SubmitButton({
   className = "",
   text = "submit",
   size = "lg",
@@ -34,4 +34,26 @@ function SubmitButton({
   );
 }
 
-export default SubmitButton;
+type actionType = "edit" | "delete";
+
+export const IconButton = ({ actionType }: { actionType: actionType }) => {
+  const { pending } = useFormStatus();
+
+  const renderIcon = () => {
+    switch (actionType) {
+      case "edit":
+        return <LuPen />;
+      case "delete":
+        return <LuTrash2 />;
+      default:
+        const never: never = actionType;
+        throw new Error(`Invalid action type: ${never}`);
+    }
+  };
+
+  return (
+    <Button>
+      {pending ? <ReloadIcon className="animate-spin" /> : renderIcon()}
+    </Button>
+  );
+};
