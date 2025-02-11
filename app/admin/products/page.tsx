@@ -49,7 +49,7 @@ async function AdminProductsPage() {
                 <TableCell>{company}</TableCell>
                 <TableCell>{formatCurrency(price)}</TableCell>
                 <TableCell className="flex items-center gap-x-2">
-                  <Link href={`admin/products/${productId}/edit`}>
+                  <Link href={`/admin/products/${productId}/edit`}>
                     <IconButton actionType="edit" />
                   </Link>
 
