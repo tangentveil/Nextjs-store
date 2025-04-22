@@ -40,8 +40,8 @@ function CartTotalRow({
     <>
       <p className="flex justify-between text-sm">
         <span>{label}</span>
-        <span>{formatCurrency(amount)}</span>
         {lastRow ? null : <Separator className="my-2" />}
+        <span>{formatCurrency(amount)}</span>
       </p>
     </>
   );
