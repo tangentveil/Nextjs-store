@@ -19,8 +19,8 @@ function CheckoutPage() {
 
   const fetchClientSecret = useCallback(async () => {
     const response = await axios.post("/api/payment", {
-      orderId,
-      cartId,
+      orderId: orderId,
+      cartId: cartId,
     });
 
     return response.data.clientSecret;
