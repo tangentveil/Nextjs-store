@@ -4,6 +4,9 @@ import { type NextRequest } from "next/server";
 import db from "@/utils/db";
 
 export const POST = async (req: NextRequest) => {
+  // console.log(stripe)
+  // console.log(process.env.STRIPE_SECRET_KEY)
+  
   const requestHeaders = new Headers(req.headers);
   const origin = requestHeaders.get("origin");
 
@@ -55,7 +58,7 @@ export const POST = async (req: NextRequest) => {
       metadata: { orderId, cartId },
       line_items: line_items,
       mode: "payment",
-      return_url: `${origin}/api/confirm?session_id={CHECKOUT_SESSION_OUT}`,
+      return_url: `${origin}/api/confirm?session_id={CHECKOUT_SESSION_ID}`,
     });
 
     return Response.json({ clientSecret: session.client_secret });

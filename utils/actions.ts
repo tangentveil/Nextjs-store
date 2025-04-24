@@ -376,7 +376,6 @@ export const fetchCartItems = async () => {
       numItemsInCart: true,
     },
   });
-
   return cart?.numItemsInCart || 0;
 };
 
